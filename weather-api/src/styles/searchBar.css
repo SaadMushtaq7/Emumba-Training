@@ -1,0 +1,19 @@
+.searchBar {
+  text-align: center;
+}
+.selector {
+  padding: 5px;
+  font-size: 13px;
+}
+.searched {
+  width: 500px;
+  padding: 2px;
+}
+.searched::placeholder {
+  padding-left: 10px;
+}
+.searchClicked {
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+}

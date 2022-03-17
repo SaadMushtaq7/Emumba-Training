@@ -1,0 +1,23 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+}
+.mainKing {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+.mainShow {
+  margin-right: 30px;
+  padding: 10px;
+  text-align: center;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.mainShow:hover {
+  border: 1px solid gray;
+  border-radius: 15px;
+  background-color: #fbfbfb;
+}

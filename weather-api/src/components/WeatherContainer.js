@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import '../styles/weather.css'
-import WeatherDisplay from './WeatherDisplay';
+import '../styles/weather-container.css'
+import WeatherDetails from './WeatherDetails';
 
 const days =['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-export default function Weather(props) {
+export default function WeatherContainer(props) {
     
     const [selectedWeather, setSelectedWeather] = useState(props.forecast.list[0]);
     function getDay(date){
@@ -32,14 +32,14 @@ export default function Weather(props) {
             <div key={daily.dt} className='mainShow' onClick={()=> handleSelected(temp.indexOf(daily))}>
                 <span>{getDay(daily.dt_txt)}</span><br/>
                 <img src={`http://openweathermap.org/img/w/${daily.weather[0].icon}.png`} alt='forecast' /><br/>
-                <span style={{marginRight:25}}>{onCelsius(daily.main.temp_min)}&#176;</span><span>{onCelsius(daily.main.temp_max)}&#176;</span>     
+                <span className='minTemp'>{onCelsius(daily.main.temp_min)}&#176;</span><span>{onCelsius(daily.main.temp_max)}&#176;</span>     
             </div>
         );
     })
   return (
     <div>
         <div className='mainContainer'>
-        <WeatherDisplay 
+        <WeatherDetails 
         selected = {selectedWeather} 
         city = {props.forecast.city.name}
         country = {props.forecast.city.country} />

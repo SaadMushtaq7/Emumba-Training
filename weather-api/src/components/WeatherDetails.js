@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import '../styles/weatherDisplay.css'
+import '../styles/weather-details.css'
 let cel = 0;
 const days =['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-export default function WeatherDisplay(props) {
+export default function WeatherDetails(props) {
   
   let tempVal = (props.selected.main.temp - 273.15).toFixed(2);
   const [tempConverter, setTempConverter] = useState(tempVal);
@@ -23,8 +23,6 @@ export default function WeatherDisplay(props) {
       cel = 0;
       let tempVal = (props.selected.main.temp - 273.15).toFixed(2);
       setTempConverter(tempVal)
-      //return tempVal;
-      //let temp = ((tempVal-32) * 5/9).toFixed(2);
     }
   }
   function onFarenheit(){
@@ -32,8 +30,6 @@ export default function WeatherDisplay(props) {
       cel = 1;
       let tempVal = ((props.selected.main.temp - 273.15) * 9/5 +32).toFixed(2);
       setTempConverter(tempVal);
-     // return tempVal;
-      //let temp = ((tempConverter * 9/5) + 32).toFixed(2);
     }
   }
   const weather = props.selected;
@@ -49,12 +45,12 @@ export default function WeatherDisplay(props) {
       <div className='todayWeather'>
         <div className='tempImg'>
             <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} alt='forecast'/>
-            <h1 style={{marginLeft:50}}>
+            <h1 className='converterTemp'>
              {tempConverter}
              </h1>
-             <a href="/#" className='converter' style={{ cursor: 'pointer', marginRight:5, marginLeft:10, fontSize:18}} onClick={() => onCelsius()}>&#8451;</a>
+             <a href="/#" className='converterC'  onClick={() => onCelsius()}>&#8451;</a>
               | 
-              <a href="/#" className='converter' style={{ cursor: 'pointer', marginLeft:5, fontSize:18}} onClick={() => onFarenheit()}>&#8457;</a>
+              <a href="/#" className='converterF' onClick={() => onFarenheit()}>&#8457;</a>
         </div>
         <div className='weatherDetails'>
             <span>Pressure: {weather.main.pressure} hPa</span><br/>

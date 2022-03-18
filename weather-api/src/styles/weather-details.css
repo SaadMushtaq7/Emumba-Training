@@ -19,11 +19,25 @@
   display: flex;
   flex-direction: row;
 }
-.converter {
+.converterC {
   text-decoration: none;
   color: black;
+  cursor: "pointer";
+  margin-right: 5px;
+  margin-left: 10px;
+  font-size: 18px;
 }
-
-.converter:hover {
+.converterF {
+  text-decoration: none;
   color: black;
+  cursor: "pointer";
+  margin-left: 5px;
+  font-size: 18px;
+}
+.converterC:hover,
+.converterF:hover {
+  color: black;
+}
+.converterTemp {
+  margin-left: 50px;
 }
